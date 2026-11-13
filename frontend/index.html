@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VehicleCare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+    <div class="brand">
+        <span class="mark">VC</span>
+        <div>
+            <b>VehicleCare</b>
+            <small>Service Management</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#dashboard">▦ Dashboard</a>
+        <a href="#customers">♙ Customers</a>
+        <a href="#vehicles">▣ Vehicles</a>
+        <a href="#appointments">◷ Appointments</a>
+        <a href="#services">⚙ Service Records</a>
+        <a href="#billing">▤ Billing</a>
+        <a href="#reports">▥ Reports</a>
+    </nav>
+
+    <div class="side-note">Vehicle Service Management System</div>
+</aside>
+
+<main class="main">
+
+<header>
+    <div>
+        <p class="eyebrow">WORKSPACE / OVERVIEW</p>
+        <h1>Dashboard</h1>
+        <p class="muted">Manage customers, vehicles and service activity.</p>
+    </div>
+    <span class="admin">Administrator</span>
+</header>
+
+<section id="dashboard">
+    <div class="heading">
+        <div>
+            <h2>Overview</h2>
+            <p class="muted">Live summary from your database</p>
+        </div>
+        <button class="light" onclick="loadAll()">Refresh</button>
+    </div>
+
+    <div class="stats">
+        <article>
+            <p>Total Customers</p>
+            <strong id="customerCount">—</strong>
+        </article>
+        <article>
+            <p>Total Vehicles</p>
+            <strong id="vehicleCount">—</strong>
+        </article>
+        <article>
+            <p>Appointments</p>
+            <strong id="appointmentCount">—</strong>
+        </article>
+        <article>
+            <p>Service Records</p>
+            <strong id="serviceCount">—</strong>
+        </article>
+    </div>
+</section>
+
+<section id="customers" class="panel">
+    <h2>Customer Details</h2>
+
+    <form id="customerForm" class="form">
+        <label>Customer name
+            <input name="customerName" required>
+        </label>
+        <label>Phone
+            <input name="phone" required>
+        </label>
+        <label>Email
+            <input name="email" type="email">
+        </label>
+        <label>Address
+            <input name="address">
+        </label>
+        <button>Add Customer</button>
+    </form>
+
+    <div class="tablebox">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="customersTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<section id="vehicles" class="panel">
+    <h2>Vehicle Details</h2>
+    <p class="muted">Enter an existing Customer ID.</p>
+
+    <form id="vehicleForm" class="form">
+        <label>Customer ID
+            <input name="customerId" type="number" min="1" required>
+        </label>
+        <label>Vehicle number
+            <input name="vehicleNumber" required>
+        </label>
+        <label>Brand
+            <input name="brand">
+        </label>
+        <label>Model
+            <input name="model" required>
+        </label>
+        <label>Vehicle type
+            <input name="vehicleType">
+        </label>
+        <label>Year
+            <input name="manufactureYear" type="number">
+        </label>
+        <button>Add Vehicle</button>
+    </form>
+
+    <div class="tablebox">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Vehicle No.</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody id="vehiclesTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<section id="appointments" class="panel">
+    <h2>Appointments</h2>
+    <p class="muted">Use existing Customer ID and Vehicle ID.</p>
+
+    <form id="appointmentForm" class="form">
+        <label>Customer ID
+            <input name="customerId" type="number" required>
+        </label>
+        <label>Vehicle ID
+            <input name="vehicleId" type="number" required>
+        </label>
+        <label>Date
+            <input name="appointmentDate" type="date" required>
+        </label>
+        <label>Issue
+            <input name="issueDescription">
+        </label>
+        <button>Book Appointment</button>
+    </form>
+
+    <div class="tablebox">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Vehicle</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="appointmentsTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<section id="services" class="panel">
+    <h2>Service Records</h2>
+
+    <form id="serviceForm" class="form">
+        <label>Vehicle ID
+            <input name="vehicleId" type="number" required>
+        </label>
+        <label>Service date
+            <input name="serviceDate" type="date" required>
+        </label>
+        <label>Description
+            <input name="serviceDescription" required>
+        </label>
+        <label>Labour cost
+            <input name="laborCost" type="number" min="0" step=".01" required>
+        </label>
+        <label>Parts cost
+            <input name="partsCost" type="number" min="0" step=".01" required>
+        </label>
+        <label>Next service date
+            <input name="nextServiceDate" type="date">
+        </label>
+        <button>Save Service</button>
+    </form>
+
+    <div class="tablebox">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Vehicle</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="servicesTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<section id="billing" class="panel">
+    <h2>Billing</h2>
+    <p class="muted">Enter an existing Service ID.</p>
+
+    <form id="billForm" class="form">
+        <label>Service ID
+            <input name="serviceId" type="number" required>
+        </label>
+        <label>Bill date
+            <input name="billDate" type="date" required>
+        </label>
+        <label>Amount
+            <input name="amount" type="number" min="0" step=".01" required>
+        </label>
+        <label>Status
+            <select name="paymentStatus">
+                <option>PENDING</option>
+                <option>PAID</option>
+            </select>
+        </label>
+        <label>Payment method
+            <select name="paymentMethod">
+                <option value="">Select</option>
+                <option>CASH</option>
+                <option>UPI</option>
+                <option>CARD</option>
+                <option>BANK TRANSFER</option>
+            </select>
+        </label>
+        <button>Generate Bill</button>
+    </form>
+
+    <div class="tablebox">
+        <table>
+            <thead>
+                <tr>
+                    <th>Bill ID</th>
+                    <th>Service</th>
+                    <th>Vehicle</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="billsTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<!-- REPORTS AND ANALYSIS -->
+
+<section id="reports" class="panel">
+    <h2>Reports & Analysis</h2>
+
+    <p class="muted">
+        Vehicle Maintenance and Monthly Service Analysis
+    </p>
+
+    <div class="chart-container">
+
+        <div class="chart-card">
+            <h3>Maintenance Cost by Vehicle</h3>
+            <img
+                src="charts/maintenance_cost_by_vehicle.png"
+                alt="Maintenance Cost by Vehicle Chart">
+        </div>
+
+        <div class="chart-card">
+            <h3>Service Records by Month</h3>
+            <img
+                src="charts/services_by_month.png"
+                alt="Service Records by Month Chart">
+        </div>
+
+    </div>
+</section>
+
+<footer>VehicleCare · Student Project</footer>
+
+</main>
+
+<div id="toast"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #172554;
+    color: white;
+    padding: 25px 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 45px;
+}
+
+.mark {
+    background: #f97316;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.brand b,
+.brand small {
+    display: block;
+}
+
+.brand small {
+    color: #cbd5e1;
+    margin-top: 5px;
+}
+
+nav a {
+    display: block;
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 14px;
+    margin: 7px 0;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background: #334155;
+    color: white;
+}
+
+.side-note {
+    position: absolute;
+    bottom: 25px;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* MAIN CONTENT */
+
+.main {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin: 8px 0;
+}
+
+.eyebrow {
+    color: #f97316;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.muted {
+    color: #64748b;
+    margin-top: 8px;
+}
+
+.admin {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+}
+
+/* DASHBOARD */
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.stats article {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.stats article p {
+    color: #64748b;
+}
+
+.stats strong {
+    display: block;
+    font-size: 30px;
+    margin-top: 12px;
+    color: #f97316;
+}
+
+/* PANELS */
+
+.panel {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.panel h2 {
+    margin-bottom: 18px;
+}
+
+/* FORMS */
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 20px 0;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form input,
+.form select {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    outline: none;
+}
+
+.form input:focus,
+.form select:focus {
+    border-color: #f97316;
+}
+
+button {
+    background: #f97316;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ea580c;
+}
+
+button.light {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* TABLES */
+
+.tablebox {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #f8fafc;
+    color: #475569;
+}
+
+/* REPORT CHARTS */
+
+.chart-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.chart-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.chart-card h3 {
+    color: #1e293b;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.chart-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (min-width: 1000px) {
+    .chart-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .stats,
+    .form,
+    .chart-container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
