@@ -1,0 +1,28 @@
+
+@startuml
+left to right direction
+
+actor "Staff / Admin" as Admin
+
+rectangle "Vehicle Service Management System" {
+
+    usecase "View Dashboard" as UC1
+    usecase "Manage Customer Details" as UC2
+    usecase "Manage Vehicle Details" as UC3
+    usecase "Book Appointment" as UC4
+    usecase "Manage Service Records" as UC5
+    usecase "Generate Bills" as UC6
+    usecase "View Maintenance Reports" as UC7
+    usecase "Analyze Maintenance Costs" as UC8
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+
+@enduml

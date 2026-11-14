@@ -1,0 +1,48 @@
+
+@startuml
+
+class Customer {
+  customerId
+  name
+  phone
+  address
+}
+
+class Vehicle {
+  vehicleId
+  registrationNumber
+  model
+  customerId
+}
+
+class Appointment {
+  appointmentId
+  vehicleId
+  appointmentDate
+  issue
+}
+
+class ServiceRecord {
+  serviceId
+  vehicleId
+  serviceDate
+  description
+  laborCost
+  partsCost
+  totalCost
+  nextServiceDate
+}
+
+class Bill {
+  billId
+  serviceId
+  amount
+  paymentStatus
+}
+
+Customer "1" -- "many" Vehicle
+Vehicle "1" -- "many" Appointment
+Vehicle "1" -- "many" ServiceRecord
+ServiceRecord "1" -- "1" Bill
+
+@enduml

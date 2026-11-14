@@ -1,0 +1,66 @@
+
+@startuml
+
+entity Customer {
+  * customer_id : INT <<PK>>
+  --
+  customer_name : VARCHAR
+  phone : VARCHAR
+  email : VARCHAR
+  address : VARCHAR
+  created_at : TIMESTAMP
+}
+
+entity Vehicle {
+  * vehicle_id : INT <<PK>>
+  --
+  customer_id : INT <<FK>>
+  vehicle_number : VARCHAR
+  brand : VARCHAR
+  model : VARCHAR
+  vehicle_type : VARCHAR
+  manufacture_year : INT
+}
+
+entity Appointment {
+  * appointment_id : INT <<PK>>
+  --
+  customer_id : INT <<FK>>
+  vehicle_id : INT <<FK>>
+  appointment_date : DATE
+  issue_description : VARCHAR
+  status : VARCHAR
+}
+
+entity Service_Record {
+  * service_id : INT <<PK>>
+  --
+  appointment_id : INT <<FK>>
+  vehicle_id : INT <<FK>>
+  service_date : DATE
+  service_description : VARCHAR
+  labor_cost : DECIMAL
+  parts_cost : DECIMAL
+  total_cost : DECIMAL
+  next_service_date : DATE
+}
+
+entity Bill {
+  * bill_id : INT <<PK>>
+  --
+  service_id : INT <<FK>>
+  bill_date : DATE
+  amount : DECIMAL
+  payment_status : VARCHAR
+  payment_method : VARCHAR
+}
+
+Customer ||--o{ Vehicle
+Customer ||--o{ Appointment
+Vehicle ||--o{ Appointment
+Vehicle ||--o{ Service_Record
+Appointment |o--o{ Service_Record
+Service_Record ||--o{ Bill
+
+
+@enduml

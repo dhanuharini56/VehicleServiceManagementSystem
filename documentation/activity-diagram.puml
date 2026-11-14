@@ -1,0 +1,32 @@
+
+@startuml
+
+start
+
+:Open Vehicle Service System;
+
+:View Dashboard;
+
+:Select Customer Details;
+
+:Enter Customer Information;
+
+:Save Customer Details;
+
+:Select Vehicle Details;
+
+:Enter Vehicle Information;
+
+:Save Vehicle Details;
+
+:Book Service Appointment;
+
+:Create Service Record;
+
+:Generate Bill;
+
+:View Maintenance Reports;
+
+stop
+
+@enduml

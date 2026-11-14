@@ -1,0 +1,16 @@
+
+@startuml
+
+actor Staff
+participant "Frontend" as UI
+participant "Spring Boot Backend" as API
+database "MySQL Database" as DB
+
+Staff -> UI: Enter Customer Details
+UI -> API: Send Customer Data
+API -> DB: Save Customer Details
+DB --> API: Save Successful
+API --> UI: Success Response
+UI --> Staff: Display Confirmation
+
+@enduml
