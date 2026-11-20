@@ -189,7 +189,23 @@ Repository: https://github.com/dhanuharini56/VehicleServiceManagementSystem
 - Keep local configuration files out of the public repository.
 - Use the `.gitignore` file to exclude sensitive files and unnecessary generated files.
 
-## 14. Conclusion
+## 14.Lines of Code (LOC)
+
+The Vehicle Service Management System is developed using Java, Python, SQL, HTML, CSS, and JavaScript.
+
+The following table shows the language-wise line count of the project.
+
+| S.No | Programming Language | Lines of Code |
+|---:|---|---:|
+| 1 | Java | 215 |
+| 2 | SQL | 66 |
+| 3 | JavaScript | 189 |
+| 4 | HTML | 278 |
+| 5 | CSS | 258 |
+| 6 | Python | 204 |
+| | **Total Lines** | **1,210** |
+
+## 15. Conclusion
 
 The Vehicle Service Management and Maintenance Analysis System provides an organized solution for vehicle service center operations.
 
